@@ -57,3 +57,23 @@ const typed = new Typed('.multiple-text', {
     backDelay: 1000,
     loop:true
 });
+
+/*============= SmtpJS =============*/
+var btn = document.getElementById('btn');
+    btn.addEventListener('click',function(e){
+        e.preventDefault()
+        var name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
+        var message = document.getElementById('message').value;
+        var body = 'name: '+name +'</br> email:' +email +'</br> message:' +message;
+
+        Email.send({
+            SecureToken : "50f40e44-046b-46ed-9114-284eeb16019b",
+            To : 'contact@habashyabdulrahman.com',
+            From : "hsabdulrahman796@gmail.com",
+            Subject : "Contact Message",
+            Body : body
+        }).then(
+            message => alert(message)
+        );
+    })
